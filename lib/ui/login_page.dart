@@ -1,10 +1,9 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:totalx_test/main.dart';
 import 'package:totalx_test/services/auth_services.dart';
+import 'package:totalx_test/ui/home_page.dart';
 
 class LoginPage extends StatelessWidget {
-  // const LoginPage({super.key});
+  LoginPage({super.key});
   final AuthServices _auth = AuthServices();
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class LoginPage extends StatelessWidget {
                   if (user != null) {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => MyHomePage()),
+                      MaterialPageRoute(builder: (_) => HomePage()),
                     );
                   } else {
                     ScaffoldMessenger.of(
@@ -78,9 +77,7 @@ class LoginPage extends StatelessWidget {
                 Text(" & "),
 
                 GestureDetector(
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                   child: Text(
                     "privacy policy",
                     style: TextStyle(color: Colors.blue),
