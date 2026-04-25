@@ -5,10 +5,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:totalx_test/provider/user_provider.dart';
 
-import '../controllers/user_controller.dart';
-import '../models/user_model.dart';
+import '../../controllers/user_controller.dart';
+import '../../models/user_model.dart';
 // import '../providers/user_provider.dart';
-import '../services/user_service.dart';
+import '../../services/user_service.dart';
 
 class AddUserPage extends StatefulWidget {
   const AddUserPage({super.key});

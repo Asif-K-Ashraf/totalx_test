@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:totalx_test/provider/user_provider.dart';
 
 
-import 'ui/login_page.dart';
+import 'ui/screens/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

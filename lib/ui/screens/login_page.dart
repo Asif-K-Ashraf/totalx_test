@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:totalx_test/services/auth_services.dart';
-import 'package:totalx_test/ui/home_page.dart';
+import 'package:totalx_test/ui/screens/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

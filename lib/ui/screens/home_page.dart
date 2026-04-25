@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:totalx_test/ui/widget/location_appbar.dart';
 import 'package:totalx_test/ui/widget/search_filter.dart';
 import 'package:totalx_test/ui/widget/user_list_view.dart';
-import '../controllers/user_controller.dart';
-import '../provider/user_provider.dart';
-import '../services/location_service.dart';
+import '../../controllers/user_controller.dart';
+import '../../provider/user_provider.dart';
+import '../../services/location_service.dart';
 import 'add_user_page.dart';
 
 class HomePage extends StatefulWidget {

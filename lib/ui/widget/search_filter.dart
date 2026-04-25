@@ -60,7 +60,7 @@ class SearchFilterBar extends StatelessWidget {
                         ),
 
                         ListTile(
-                          title: Text("Above 60 (Older)"),
+                          title: Text("Users Above 60"),
                           onTap: () {
                             onFilterSelected("older");
                             Navigator.pop(context);
@@ -68,7 +68,7 @@ class SearchFilterBar extends StatelessWidget {
                         ),
 
                         ListTile(
-                          title: Text("Below 60 (Younger)"),
+                          title: Text("Users Below 60 "),
                           onTap: () {
                             onFilterSelected("younger");
                             Navigator.pop(context);

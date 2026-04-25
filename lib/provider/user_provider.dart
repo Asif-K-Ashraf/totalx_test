@@ -8,7 +8,12 @@ class UserProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addUser(UserModel user){
+  void addMoreUsers(List<UserModel> newUsers) {
+    users.addAll(newUsers);
+    notifyListeners();
+  }
+
+  void addUser(UserModel user) {
     users.add(user);
     notifyListeners();
   }
