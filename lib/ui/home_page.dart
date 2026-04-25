@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:totalx_test/controllers/user_controller.dart';
@@ -25,6 +27,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          "📍 Nilambur",
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
+      ),
       backgroundColor: Colors.grey[200],
 
       floatingActionButton: FloatingActionButton(
@@ -35,22 +44,12 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (_) => AddUserPage()),
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white),
       ),
 
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(16),
-              color: Colors.black,
-              child: Text(
-                "📍 Nilambur",
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ),
-
             Padding(
               padding: const EdgeInsets.all(12),
               child: Row(
@@ -113,6 +112,7 @@ class _HomePageState extends State<HomePage> {
                       final user = filteredUsers[index];
 
                       return Card(
+                        color: Colors.white,
                         margin: EdgeInsets.symmetric(
                           horizontal: 12,
                           vertical: 6,
@@ -122,10 +122,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: ListTile(
                           leading: CircleAvatar(
-                            radius: 25,
-                            backgroundImage: NetworkImage(user.imageUrl),
+                            radius: 30,
+                            backgroundImage: user.imageUrl.startsWith('http')
+                                ? NetworkImage(user.imageUrl)
+                                : FileImage(File(user.imageUrl))
+                                      as ImageProvider,
                           ),
-                          title: Text(user.name),
+                          title: Text(
+                            user.name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 25,
+                            ),
+                          ),
                           subtitle: Text("Age: ${user.age}"),
                         ),
                       );

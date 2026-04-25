@@ -8,11 +8,7 @@ class UserService {
   final _db = FirebaseFirestore.instance;
   final _storage = FirebaseStorage.instance;
 
-
-
-
-
-//image upload
+  //image upload
   Future<String> imageupload(File file) async {
     final ref = _storage.ref().child(
       'users/${DateTime.now().millisecondsSinceEpoch}.jpg',
@@ -21,10 +17,9 @@ class UserService {
     return await ref.getDownloadURL();
   }
 
-
   //add user
   Future<UserModel> addUser(UserModel user) async {
-    final doc= await _db.collection('users').add(user.toMap());
+    final doc = await _db.collection('users').add(user.toMap());
     return UserModel(
       id: doc.id,
       name: user.name,
@@ -34,8 +29,8 @@ class UserService {
     );
   }
 
-//fetch users from firebase
-    Future<List<UserModel>> fetchUsers() async {
+  //fetch users from firebase
+  Future<List<UserModel>> fetchUsers() async {
     final snapshot = await _db.collection('users').get();
 
     return snapshot.docs.map((doc) {
@@ -43,5 +38,7 @@ class UserService {
     }).toList();
   }
 
-
+  Future<void> addUserToFirestore(Map<String, dynamic> data) async {
+    await FirebaseFirestore.instance.collection('users').add(data);
+  }
 }
